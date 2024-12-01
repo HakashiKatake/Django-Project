@@ -1,8 +1,9 @@
 from django.shortcuts import render
-
+from .models import ChaiVariety
 
 def all_chai(request):
-    return render(request, 'chai/all_chai.html')
+    chais = ChaiVariety.objects.all()
+    return render(request, 'chai/all_chai.html', {'chais': chais})
 
 def order(request):
     return render(request, 'chai/order.html')
